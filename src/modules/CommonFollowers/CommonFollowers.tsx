@@ -7,10 +7,12 @@ export const CommonFollowers = () => {
   const [userOne, setUserOne] = useState("");
   const [userTwo, setUserTwo] = useState("");
 
-  const { hasLoaded, isLoading, followers } = useFollowers({
+  const { isLoading, followers } = useFollowers({
     userOne,
     userTwo,
   });
+
+  const isApiLoading = isLoading && userOne !== "" && userTwo !== "";
 
   const loadingFollowers = (
     <React.Fragment>
@@ -31,7 +33,7 @@ export const CommonFollowers = () => {
         userTwo={userTwo}
       />
       <Grid container spacing={2} paddingY={2}>
-        {isLoading
+        {isApiLoading
           ? loadingFollowers
           : followers.map((follower) => (
               <Grid item md={2} sm={3} xs={6} key={follower.id}>
