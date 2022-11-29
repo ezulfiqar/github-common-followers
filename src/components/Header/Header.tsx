@@ -1,18 +1,18 @@
 import React from "react";
-import {
-  AppBar,
-  Toolbar,
-  Typography,
-} from "@mui/material";
+import { StyledAppBar } from "./Header.styles";
+import { Toolbar, Typography } from "@mui/material";
 
 export const Header = () => {
   return (
-    <AppBar component="nav">
+    <StyledAppBar>
       <Toolbar>
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+        <Typography
+          variant="h6"
+          sx={{ color: "#000", flexGrow: 1, fontWeight: 700 }}
+        >
           Github Common Followers
         </Typography>
       </Toolbar>
-    </AppBar>
+    </StyledAppBar>
   );
 };
